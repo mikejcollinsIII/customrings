@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { FaPencilRuler, FaCheckCircle, FaIndustry, FaShippingFast } from 'react-icons/fa';
 
 export function Header() {
   return (
@@ -13,11 +14,10 @@ export function Header() {
   );
 }
 
-export function headerMedia ()  {
+export function HeaderMedia()  {
   return (
     <div className="header-media">
-      <img src="/assets/" alt="Custom Boxing Ring" />
-      <p>High-quality, custom boxing rings for all needs.</p>
+      <img src="/src/assets/rs=w_1023,m.webp" alt="Custom Boxing Ring" />
     </div>
   );
 };
@@ -31,4 +31,25 @@ export function Footer() {
 
 export function Body({ children }) {
   return <main className="main-content">{children}</main>;
+}
+
+export function Stage({ number, label, active, icon }) {
+  return (
+    <div className={`stage${active ? " active" : ""}`}>
+      <span className="stage-number"><span className="stage-num">{number}</span></span>
+      <span className="stage-icon">{icon}</span>
+      <span className="stage-label">{label}</span>
+    </div>
+  );
+}
+
+export function StagesIndicator({ current = 1 }) {
+  return (
+    <div className="stages-indicator">
+      <Stage number={1} label="Design Mockup" active={current === 1} icon={<FaPencilRuler size={32} />} />
+      <Stage number={2} label="Confirm & Pay 60%" active={current === 2} icon={<FaCheckCircle size={32} />} />
+      <Stage number={3} label="Production in Thailand" active={current === 3} icon={<FaIndustry size={32} />} />
+      <Stage number={4} label="Balance Paid & Shipping" active={current === 4} icon={<FaShippingFast size={32} />} />
+    </div>
+  );
 }
