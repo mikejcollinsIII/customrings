@@ -1,15 +1,36 @@
 import { Link } from 'react-router-dom';
 import { FaPencilRuler, FaCheckCircle, FaIndustry, FaShippingFast } from 'react-icons/fa';
+import { useState } from 'react';
 
 export function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className="header">
-      <h1>Custom Boxing Rings</h1>
-      <nav>
+      <div className="header-row">
+        <h1>Custom Boxing Rings</h1>
+        <a className="header-phone" href="tel:07931239316">07931239316</a>
+      </div>
+      <button
+        className={`hamburger${menuOpen ? ' open' : ''}`}
+        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={menuOpen}
+        aria-controls="mobile-menu"
+        onClick={() => setMenuOpen((v) => !v)}
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav className="desktop-nav">
         <Link to="/products">Products</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
       </nav>
+      {menuOpen && (
+        <nav id="mobile-menu" className="mobile-menu" role="menu">
+          <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+        </nav>
+      )}
     </header>
   );
 }

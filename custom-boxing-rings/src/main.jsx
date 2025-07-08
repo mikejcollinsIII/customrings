@@ -45,41 +45,43 @@ function AboutHighlight() {
   );
 }
 
+function CentralContainer({ children }) {
+  return <div className="central-container">{children}</div>;
+}
+
 function Products() {
   return (
-    <Body>
-      <section id="products">
-        <h2>Our Custom Boxing Rings</h2>
-        <p>Showcase your unique boxing ring designs here.</p>
-      </section>
-      <AboutHighlight />
-      <section id="contact">
-        <button className="contact-btn" type="button">Contact</button>
-        <p className="main-white">Email us at info@customboxingrings.com</p>
-      </section>
-    </Body>
+    <CentralContainer>
+      <Body>
+        {/* Add your Products content here */}
+      </Body>
+    </CentralContainer>
   );
 }
 
 function About() {
   return (
-    <Body>
-      <section id="about">
-        <h2>About Us</h2>
-        <p>We create high-quality, custom boxing rings for all needs.</p>
-      </section>
-    </Body>
+    <CentralContainer>
+      <Body>
+        <section id="about">
+          <h2>About Us</h2>
+          <p>We create high-quality, custom boxing rings for all needs.</p>
+        </section>
+      </Body>
+    </CentralContainer>
   );
 }
 
 function Contact() {
   return (
-    <Body>
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Email us at info@customboxingrings.com</p>
-      </section>
-    </Body>
+    <CentralContainer>
+      <Body>
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Email us at info@customboxingrings.com</p>
+        </section>
+      </Body>
+    </CentralContainer>
   );
 }
 
@@ -87,9 +89,15 @@ const MainContactSection = () => (
   <div className="wrapper-contact">
     <section id="contact" className="main-contact-section">
       <div className="main-contact-links">
-        <div className="main-contact-link-col">Phone: 077 0706 3217</div>
-        <div className="main-contact-link-col">Email: info@customboxingrings.com</div>
-        <div className="main-contact-link-col">Contact</div>
+        <div className="main-contact-link-col">
+          <a href="tel:07931239316" style={{ color: '#fff', textDecoration: 'none' }}>Phone: 07931239316</a>
+        </div>
+        <div className="main-contact-link-col">
+          <a href="mailto:info@customboxingrings.com" style={{ color: '#fff', textDecoration: 'none' }}>Email: info@customboxingrings.com</a>
+        </div>
+        <div className="main-contact-link-col">
+          <a href="tel:07931239316" style={{ color: '#fff', textDecoration: 'none' }}>Contact</a>
+        </div>
         <div className="main-contact-link-col main-contact-social">
           <a href="https://facebook.com/customboxingrings" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-link">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
@@ -100,7 +108,7 @@ const MainContactSection = () => (
         </div>
       </div>
       <h2 className="main-white">Contact Us</h2>
-      <button className="contact-btn" type="button">Contact</button>
+      <a href="tel:07931239316" className="contact-btn" type="button">Contact</a>
     </section>
   </div>
 );
