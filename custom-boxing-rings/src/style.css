@@ -53,13 +53,14 @@ body {
 }
 .header nav {
   margin-top: 1rem;
-
+  padding-bottom: 20px;
+  border-bottom: 1px solid white;
 }
 .header nav a {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   transition: color 0.2s;
   margin: 0 0 2.5rem  0.5rem;
 }
@@ -95,6 +96,7 @@ body {
   align-items: flex-start;
   overflow: hidden;
   pointer-events: none;
+  
 }
 .header-media img {
   width: 100vw;
@@ -175,7 +177,7 @@ body {
 .about-highlight img {
   display: block;
   margin: 1.5rem auto;
-  max-width: 560px;
+  max-width: 40%;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
@@ -451,7 +453,7 @@ span svg {
 }
 @media (max-width: 700px) {
   .main-contact-links {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     max-width: 100%;
   }
   .main-contact-link-col {
@@ -465,6 +467,30 @@ span svg {
   .main-contact-social {
     justify-content: flex-start;
     gap: 1rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .main-contact-links {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  .main-contact-link-col {
+    border-right: none;
+    border-bottom: 1.5px solid rgba(255,255,255,0.18);
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .main-contact-link-col:last-child {
+    border-bottom: none;
+  }
+  .main-contact-social {
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -499,8 +525,6 @@ footer.footer {
 .fullwidth-title-widget h1 {
   text-align: center;
   color: #111 !important;
-  font-family: var(--font-heading);
-  font-size: 2.8rem;
   font-weight: 700;
   margin: 0;
   letter-spacing: 2px;
