@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaPencilRuler, FaCheckCircle, FaIndustry, FaShippingFast } from 'react-icons/fa';
 import { useState } from 'react';
+import headerImage from './assets/rs=w_1023,m.webp';
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,7 +40,7 @@ export function Header() {
 export function HeaderMedia()  {
   return (
     <div className="header-media">
-      <img src="/src/assets/rs=w_1023,m.webp" alt="Custom Boxing Ring" />
+      <img src={headerImage} alt="Custom Boxing Ring" />
     </div>
   );
 };

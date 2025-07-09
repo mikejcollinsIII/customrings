@@ -90,13 +90,13 @@ const MainContactSection = () => (
     <section id="contact" className="main-contact-section">
       <div className="main-contact-links">
         <div className="main-contact-link-col">
-          <a href="tel:07931239316" style={{ color: '#fff', textDecoration: 'none' }}>Phone: 07931239316</a>
+          <a href="tel:07931239316" style={{ textDecoration: 'none' }}>Phone: 07931239316</a>
         </div>
         <div className="main-contact-link-col">
-          <a href="mailto:info@customboxingrings.com" style={{ color: '#fff', textDecoration: 'none' }}>Email: info@customboxingrings.com</a>
+          <a href="mailto:info@customboxingrings.com" style={{ textDecoration: 'none' }}>Email: info@customboxingrings.com</a>
         </div>
         <div className="main-contact-link-col">
-          <a href="tel:07931239316" style={{ color: '#fff', textDecoration: 'none' }}>Contact</a>
+          <a href="tel:07931239316" style={{ textDecoration: 'none' }}>Contact</a>
         </div>
         <div className="main-contact-link-col main-contact-social">
           <a href="https://facebook.com/customboxingrings" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-link">
@@ -114,7 +114,7 @@ const MainContactSection = () => (
 );
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename={import.meta.env.PROD ? '/customrings' : ''}>
     <HeaderMedia />
     <Header />
     <Routes>
