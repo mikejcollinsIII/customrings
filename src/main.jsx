@@ -11,36 +11,43 @@ import {
   AboutHighlight, 
   Products, 
   About, 
-  Contact, 
-  MainContactSection,
+  Contact,
   Gallery
 } from './components.jsx';
 
+const CONFIG = {
+  
+
+}
+
 function Main() {
   return (
+            <Body>
     <>
+
       <div className="wrapper">
-        <Body>
-          <section id="product-tagline">
+
+           {/* <section id="product-tagline">
             <h2>Product Tagline</h2>
             <p>Showcase your unique boxing ring designs here.</p>
-          </section>
+          </section> */}
           <section className="fullwidth-title-widget">
             <h1>About Custom Boxing Rings</h1>
-          </section>
+          </section> 
           <AboutHighlight />
 
-        </Body>
-      </div>
-      <div className="wrapper_stages">
+
+       </div>
+      <div className="wrapper_stages"> 
         <StagesIndicator current={1} />
       </div>
     </>
+            </Body>
   );
 }
 
 const App = () => (
-  <BrowserRouter basename={import.meta.env.PROD ? '/customrings' : ''}>
+  <BrowserRouter basename={import.meta.env.PROD ? '/custom-boxing-rings' : ''}>
     <HeaderMedia />
     <Header />
     <Routes>
@@ -49,7 +56,6 @@ const App = () => (
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
-    <MainContactSection />
     <Footer />
   </BrowserRouter>
 );
