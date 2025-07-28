@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 import { FaPencilRuler, FaCheckCircle, FaIndustry, FaShippingFast, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useState } from 'react';
 import headerImage from './assets/rs=w_1023,m.webp';
+import logoImage from './assets/logo/1000032349.png';
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className="header">
       <div className="header-row">
-        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <h1>Custom Boxing Rings</h1>
+        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} className="header-logo-link">
+          <img src={logoImage} alt="Custom Boxing Rings" className="header-logo" />
         </Link>
         <div className="header-right">
           <div className="header-social">
@@ -39,14 +40,12 @@ export function Header() {
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
       </nav>
-      {menuOpen && (
-        <nav id="mobile-menu" className="mobile-menu" role="menu">
-          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
-          <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
-          <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
-        </nav>
-      )}
+      <nav id="mobile-menu" className={`mobile-menu${menuOpen ? ' open' : ''}`} role="menu">
+        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
+        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
+        <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+      </nav>
     </header>
   );
 }
@@ -215,17 +214,17 @@ function importAllImages() {
     });
   });
 
-  // Import images from corner-posts folder
-  const cornerPostsContext = import.meta.glob('./assets/gallery/corner-posts/*.{png,jpg,jpeg,webp}', { eager: true });
-  Object.entries(cornerPostsContext).forEach(([path, module], index) => {
+  // Import images from corner-pads folder (renamed from corner-posts)
+  const cornerPadsContext = import.meta.glob('./assets/gallery/corner-pads/*.{png,jpg,jpeg,webp}', { eager: true });
+  Object.entries(cornerPadsContext).forEach(([path, module], index) => {
     const fileName = path.split('/').pop().split('.')[0];
     images.push({
-      id: `corner-posts-${index + 1}`,
+      id: `corner-pads-${index + 1}`,
       src: module.default,
       thumb: module.default,
-      title: `Corner Post Covers #${index + 1}`,
-      description: `Professional corner post covers with safety padding`,
-      category: "Corner Posts",
+      title: `Corner Pad Covers #${index + 1}`,
+      description: `Professional corner pad covers with safety padding`,
+      category: "Corner Pads",
       fileName: fileName
     });
   });
@@ -245,6 +244,34 @@ function importAllImages() {
     });
   });
 
+  // Import images from rope-spacers folder (new category)
+  const ropeSpacersContext = import.meta.glob('./assets/gallery/rope-spacers/*.{png,jpg,jpeg,webp}', { eager: true });
+  Object.entries(ropeSpacersContext).forEach(([path, module], index) => {
+    const fileName = path.split('/').pop().split('.')[0];
+    images.push({
+      id: `rope-spacers-${index + 1}`,
+      src: module.default,
+      thumb: module.default,
+      title: `Rope Spacer #${index + 1}`,
+      description: `Custom rope spacers for boxing rings`,
+      category: "Rope Spacers",
+      fileName: fileName
+    });
+  });
+  // Import images from rope-covers folder (new category)
+  const ropeCoversContext = import.meta.glob('./assets/gallery/rope-covers/*.{png,jpg,jpeg,webp}', { eager: true });
+  Object.entries(ropeCoversContext).forEach(([path, module], index) => {
+    const fileName = path.split('/').pop().split('.')[0];
+    images.push({
+      id: `rope-covers-${index + 1}`,
+      src: module.default,
+      thumb: module.default,
+      title: `Rope Cover #${index + 1}`,
+      description: `Custom rope covers for boxing rings`,
+      category: "Rope Covers",
+      fileName: fileName
+    });
+  });
   return images;
 }
 
@@ -256,8 +283,8 @@ export function Gallery() {
   const [currentImage, setCurrentImage] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('All Our Work');
 
-  // Define the specific categories for your business
-  const categories = ['All Our Work', 'Custom Bags', 'Corner Posts', 'Ring Covers'];
+  // Updated categories
+  const categories = ['All Our Work', 'Custom Bags', 'Corner Pads', 'Ring Covers', 'Rope Spacers', 'Rope Covers'];
   
   const filteredImages = selectedCategory === 'All Our Work' 
     ? galleryImages

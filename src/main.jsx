@@ -47,7 +47,7 @@ function Main() {
 }
 
 const App = () => (
-  <BrowserRouter basename={import.meta.env.PROD ? '/custom-boxing-rings' : ''}>
+  <BrowserRouter basename={import.meta.env.PROD ? '/customrings' : ''}>
     <HeaderMedia />
     <Header />
     <Routes>
