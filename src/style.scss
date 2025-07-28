@@ -188,7 +188,7 @@ body {
   padding: 0.2em 0.2em;
   border-radius: 6px;
   transition: background 0.2s, color 0.2s;
-  margin-left: 2.5rem;
+  margin-left: 0.5rem;
   display: inline-block;
 
   @media screen and (max-width: 800px) {
@@ -1639,9 +1639,13 @@ footer.footer {
 .header-social {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-}
+
 .header-social .social-link svg {
   width: 20px;
   height: 20px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: underline;
 }
