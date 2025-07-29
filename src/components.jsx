@@ -37,13 +37,11 @@ export function Header() {
       <nav className="desktop-nav">
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
-        <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
       </nav>
       <nav id="mobile-menu" className={`mobile-menu${menuOpen ? ' open' : ''}`} role="menu">
         <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
         <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
-        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
         <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
       </nav>
     </header>
@@ -153,7 +151,7 @@ export function AboutHighlight() {
         </div>
       </div>
       <div className="enquire-button-container">
-        <a href="#contact" className="enquire-btn">Enquire Now</a>
+        <a href="https://wa.me/447931239316" className="enquire-btn" target="_blank" rel="noopener noreferrer">Enquire Now</a>
         <Link to="/products" className="gallery-btn">View Gallery</Link>
       </div>
     </>
@@ -294,6 +292,7 @@ export function Gallery() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('All Our Work');
+  const [visibleImages, setVisibleImages] = React.useState({});
 
   // Updated categories
   const categories = ['All Our Work', 'Custom Bags', 'Corner Pads', 'Ring Covers', 'Rope Spacers', 'Rope Covers'];
@@ -301,6 +300,31 @@ export function Gallery() {
   const filteredImages = selectedCategory === 'All Our Work' 
     ? galleryImages
     : galleryImages.filter(img => img.category === selectedCategory);
+
+  // Scroll to top on mount or category change
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [selectedCategory]);
+
+  // Intersection Observer for lazy loading
+  const imageRefs = React.useRef([]);
+  React.useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setVisibleImages(prev => ({ ...prev, [entry.target.dataset.index]: true }));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '100px', threshold: 0.1 }
+    );
+    imageRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+    return () => observer.disconnect();
+  }, [filteredImages]);
 
   const openLightbox = (index) => {
     setCurrentImage(index);
@@ -361,12 +385,18 @@ export function Gallery() {
             key={image.id} 
             className="gallery-item"
             onClick={() => openLightbox(index)}
+            ref={el => imageRefs.current[index] = el}
+            data-index={index}
           >
-            <img 
-              src={image.thumb} 
-              alt={image.title}
-              loading="lazy"
-            />
+            {visibleImages[index] ? (
+              <img 
+                src={image.thumb} 
+                alt={image.title}
+                loading="lazy"
+              />
+            ) : (
+              <div style={{width:'100%',height:'250px',background:'#222',borderRadius:'12px'}}></div>
+            )}
             <div className="gallery-overlay">
               <h3>{image.title}</h3>
               <p>{image.description}</p>
