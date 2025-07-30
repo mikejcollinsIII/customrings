@@ -37,11 +37,13 @@ export function Header() {
       <nav className="desktop-nav">
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
+        <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
       </nav>
       <nav id="mobile-menu" className={`mobile-menu${menuOpen ? ' open' : ''}`} role="menu">
         <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
         <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
+        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
         <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
       </nav>
     </header>
@@ -118,11 +120,6 @@ export function AboutHighlight() {
   return (
     <>
        <div className="about-highlight about-highlight-flex">
-        {/* <img
-          className="about-highlight-img"
-          src="https://img1.wsimg.com/isteam/ip/a5faf59b-3fe5-451a-a6de-c183dd95b093/8169aa88-851a-432f-a42a-be41c220dd81.jpeg/:/cr=t:2.57%25,l:13.05%25,w:70.01%25,h:36.92%25/rs=w:600,h:300,cg:true,m"
-          alt="Hitman fight league custom boxing ring"
-        /> */}
         <div className="about-highlight-text">
           <h3>Our Mission</h3>
           <p>
@@ -158,6 +155,18 @@ export function AboutHighlight() {
   );
 }
 
+export function HomeHighlight() {
+  return (
+    <div className="about-highlight about-highlight-flex">
+      <div className="about-highlight-text">
+        <p style={{ fontSize: '1.5rem', fontWeight: 400, textAlign: 'center', margin: 0 }}>
+          Custom Boxing Rings UK delivers premium, fully custom ring dressings and accessories for gyms and promoters. From bespoke canvases to branded corner pads and rope covers, we help you create a professional look for any event—crafted for durability, style, and impact.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function Products() {
   return (
     <Body>
@@ -172,8 +181,16 @@ export function Products() {
 }
 
 export function About() {
-  // About page is hidden for now
-  return null;
+  return (
+    <CentralContainer>
+      <Body>
+        <section id="about">
+          <h2>About Us</h2>
+          <AboutHighlight />
+        </section>
+      </Body>
+    </CentralContainer>
+  );
 }
 
 export function Contact() {

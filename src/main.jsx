@@ -9,6 +9,7 @@ import {
   StagesIndicator, 
   HeaderMedia, 
   AboutHighlight, 
+  HomeHighlight, 
   Products, 
   About, 
   Contact,
@@ -34,7 +35,7 @@ function Main() {
           <section className="fullwidth-title-widget">
             <h1>About Custom Boxing Rings</h1>
           </section> 
-          <AboutHighlight />
+          <HomeHighlight />
 
 
        </div>
