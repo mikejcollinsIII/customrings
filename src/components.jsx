@@ -199,7 +199,7 @@ export function Contact() {
       <Body>
         <section id="contact">
           <h2>Contact</h2>
-          <p>Email us at info@customboxingrings.com</p>
+          <p>Email us at info@customboxingrings.co.uk</p>
         </section>
       </Body>
     </CentralContainer>
