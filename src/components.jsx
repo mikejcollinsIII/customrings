@@ -66,7 +66,7 @@ export function Footer() {
             <a href="tel:07931239316" style={{ textDecoration: 'none' }}>Phone: 07931239316</a>
           </div>
           <div className="main-contact-link-col">
-            <a href="mailto:info@customboxingrings.com" style={{ textDecoration: 'none' }}>Email: info@customboxingrings.com</a>
+            <a href="mailto:info@customboxingrings.co.uk" style={{ textDecoration: 'none' }}>Email: info@customboxingrings.co.uk</a>
           </div>
           <div className="main-contact-link-col">
             <a href="tel:07931239316" style={{ textDecoration: 'none' }}>Enquire</a>

@@ -48,7 +48,7 @@ function Main() {
 }
 
 const App = () => (
-  <BrowserRouter basename={import.meta.env.PROD ? '/customrings' : ''}>
+  <BrowserRouter >
     <HeaderMedia />
     <Header />
     <Routes>
