@@ -39,12 +39,14 @@ export function Header() {
         <Link to="/products">Products</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
+        <Link to="https://themuaythaishop.co.uk">The Muay Thai Shop</Link>
       </nav>
       <nav id="mobile-menu" className={`mobile-menu${menuOpen ? ' open' : ''}`} role="menu">
         <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
         <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
         <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
         <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+        <Link to="https://themuaythaishop.co.uk" onClick={() => setMenuOpen(false)}>The Muay Thai Shop</Link>
       </nav>
     </header>
   );
