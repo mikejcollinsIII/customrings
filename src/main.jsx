@@ -13,7 +13,9 @@ import {
   Products, 
   About, 
   Contact,
-  Gallery
+  Gallery,
+  WhatWeDo,
+  WhatWeDoWithPrices
 } from './components.jsx';
 
 const CONFIG = {
@@ -51,12 +53,13 @@ const App = () => (
   <BrowserRouter >
     <HeaderMedia />
     <Header />
-    <Routes>
+  <Routes>
       <Route path="/" element={<Main />} />
       <Route path="/products" element={<Products />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
-    </Routes>
+      <Route path="/what-we-do" element={<WhatWeDoWithPrices />} />
+  </Routes>
     <Footer />
   </BrowserRouter>
 );
