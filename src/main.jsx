@@ -18,6 +18,8 @@ import {
   WhatWeDoWithPrices
 } from './components.jsx';
 
+import { MmaCages } from './MmaCages.jsx';
+import { CustomBoxingRings } from './CustomBoxingRings.jsx';
 const CONFIG = {
   
 
@@ -59,6 +61,8 @@ const App = () => (
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/what-we-do" element={<WhatWeDoWithPrices />} />
+      <Route path="/mma-cages" element={<MmaCages />} />
+      <Route path="/custom-boxing-rings" element={<CustomBoxingRings />} />
   </Routes>
     <Footer />
   </BrowserRouter>

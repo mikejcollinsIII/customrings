@@ -42,6 +42,20 @@ body {
   overflow-x: hidden;
 }
 
+body.menu-open, html.menu-open {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100vw;
+  height: 100vh;
+}
+
+.mobile-menu {
+  @media (max-width: 800px) {
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+}
+
 .header {
   background: var(--black);
   color: var(--accent);
@@ -664,19 +678,16 @@ footer.footer {
   margin-bottom: 0;
   margin-top: 0.5rem;
   box-shadow: 0 2px 16px rgba(0,0,0,0.04);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   z-index: 1;
   box-sizing: border-box;
   h1 {
     text-align: center;
     color: #fff !important;
     font-weight: 700;
-    margin: 0;
+    margin: auto;
     letter-spacing: 2px;
     position: relative;
-    display: inline-block;
     transition: color 0.2s;
     &::after {
       content: "";
@@ -1710,9 +1721,34 @@ footer.footer {
   max-width: 1100px;
   color: #fff;
 
+  ul {
+    padding: 0;
+  }
+
   h3, h2 {
     text-align: center;
   }
+
+  @media (max-width: 600px) {
+    li {
+      list-style: none;
+    }
+  }
+
+
+}
+
+.about-highlight-text a,
+.about-highlight-text a:visited {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.about-highlight-text a:hover,
+.about-highlight-text a:focus {
+  color: #ffd600;
+  text-decoration: underline;
 }
 
 .corner-covers-feature {

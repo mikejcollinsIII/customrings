@@ -26,8 +26,18 @@ import hideoutropespacer from './assets/brochure/hideoutropespacer.png';
 import thaitaniumropespacer from './assets/brochure/thaitaniumropespace.png';
 import thaifistropespacer from './assets/brochure/thaifistropespacer.png';
 import smallCornerPads from './assets/brochure/smallcornerpads.png';
+
+
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  React.useEffect(() => {
+  if (menuOpen) {
+    document.body.classList.add('menu-open');
+  } else {
+    document.body.classList.remove('menu-open');
+  }
+}, [menuOpen]);
   return (
     <header className="header">
       <div className="header-row">
@@ -372,246 +382,135 @@ export function WhatWeDo() {
 export function Prices() {
   return (
     <div className="container">
-    <section className="prices-section">
-      <h2>Ring Dressing Packages & Pricing</h2>
-      <div className="prices-table-wrapper">
-        <table className="prices-table">
-          <thead>
-            <tr>
-              <th>Set</th>
-              <th>Includes</th>
-              <th>Size</th>
-              <th>Standard</th>
-              <th>Premium</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* SET 1 */}
-            <tr>
-              <td rowSpan="5"><strong>Set 1</strong></td>
-              <td rowSpan="5">Canvas, Rope Cover, Corner Pad, Spacer</td>
-              <td>14ft</td>
-              <td>£1,433.10</td>
-              <td>£2,212.55</td>
-            </tr>
-            <tr>
-              <td>16ft</td>
-              <td>£1,518.10</td>
-              <td>£2,603.55</td>
-            </tr>
-            <tr>
-              <td>18ft</td>
-              <td>£1,909.10</td>
-              <td>£2,892.55</td>
-            </tr>
-            <tr>
-              <td>20ft</td>
-              <td>£2,198.10</td>
-              <td>£3,402.55</td>
-            </tr>
-            <tr>
-              <td>24ft</td>
-              <td>£2,708.10</td>
-              <td>£3,972.05</td>
-            </tr>
-            {/* SET 2 */}
-            <tr>
-              <td rowSpan="4"><strong>Set 2</strong></td>
-              <td rowSpan="4">Canvas, Ropes, Corner, Spacer, Long Turnbuckle Cover, Skirts & Small Corner Pad</td>
-              <td>16ft</td>
-              <td>£2,419.10</td>
-              <td>£3,462.05</td>
-            </tr>
-            <tr>
-              <td>18ft</td>
-              <td>£2,929.10</td>
-              <td>£3,972.05</td>
-            </tr>
-            <tr>
-              <td>20ft</td>
-              <td>£3,269.10</td>
-              <td>£4,312.05</td>
-            </tr>
-            <tr>
-              <td>24ft</td>
-              <td>£3,779.10</td>
-              <td>£4,822.05</td>
-            </tr>
-          </tbody>
-        </table>
-        <p className="prices-note">
-          All prices include VAT. Delivery and installation available on request. For bespoke packages or larger orders, please <a href="/contact">contact us</a> for a quote.
-        </p>
-      </div>
-    </section>
-        <section className="prices-section">
-      <h2>Individual Product Pricing</h2>
-      <div className="prices-table-wrapper">
-        <table className="prices-table">
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Size/Set</th>
-              <th>Qty</th>
-              <th>Standard</th>
-              <th>Premium</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Canvas (Vinyl)</td>
-              <td>14 ft.</td>
-              <td>1 pcs.</td>
-              <td>£775.00</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>Canvas</td>
-              <td>14 ft.</td>
-              <td>1 pcs.</td>
-              <td>£549.00</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>Canvas</td>
-              <td>16 ft.</td>
-              <td>1 pcs.</td>
-              <td>£599.00</td>
-              <td>£999.00</td>
-            </tr>
-            <tr>
-              <td>Canvas</td>
-              <td>18 ft.</td>
-              <td>1 pcs.</td>
-              <td>£829.00</td>
-              <td>£1,299.00</td>
-            </tr>
-            <tr>
-              <td>Canvas</td>
-              <td>20 ft.</td>
-              <td>1 pcs.</td>
-              <td>£999.00</td>
-              <td>£1,499.00</td>
-            </tr>
-            <tr>
-              <td>Canvas</td>
-              <td>24 ft.</td>
-              <td>1 pcs.</td>
-              <td>£1,299.00</td>
-              <td>£1,799.00</td>
-            </tr>
-            <tr>
-              <td>Rope Cover</td>
-              <td>14 ft. ring (12 ft.)</td>
-              <td>1 pcs.</td>
-              <td>£549.00</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>Rope Cover</td>
-              <td>16 ft. ring (13 ft.)</td>
-              <td>1 set</td>
-              <td>£579.00</td>
-              <td>£999.00</td>
-            </tr>
-            <tr>
-              <td>Rope Cover</td>
-              <td>16 ft. ring (14 ft.)</td>
-              <td>1 set</td>
-              <td>£599.00</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>Rope Cover</td>
-              <td>18 ft. ring (15 ft.)</td>
-              <td>1 set</td>
-              <td>£829.00</td>
-              <td>£1,299.00</td>
-            </tr>
-            <tr>
-              <td>Rope Cover</td>
-              <td>18 ft. ring (16 ft.)</td>
-              <td>1 set</td>
-              <td>£849.00</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>Rope Cover</td>
-              <td>20 ft. ring (17 ft.)</td>
-              <td>1 set</td>
-              <td>£999.00</td>
-              <td>£1,499.00</td>
-            </tr>
-            <tr>
-              <td>Rope Cover</td>
-              <td>24 ft. ring (21 ft.)</td>
-              <td>1 set</td>
-              <td>£1,299.00</td>
-              <td>£1,799.00</td>
-            </tr>
-            <tr>
-              <td>Skirts</td>
-              <td>-</td>
-              <td>1 set</td>
-              <td>£349.00</td>
-              <td>£549.00</td>
-            </tr>
-            <tr>
-              <td>Skirts</td>
-              <td>20×1 ft.</td>
-              <td>1 set</td>
-              <td>£299.00</td>
-              <td>£449.00</td>
-            </tr>
-            <tr>
-              <td>Skirts</td>
-              <td>20×3 ft.</td>
-              <td>1 set</td>
-              <td>£349.00</td>
-              <td>£549.00</td>
-            </tr>
-            <tr>
-              <td>Corner Pads</td>
-              <td>4 pcs./set</td>
-              <td>1 set</td>
-              <td>£399.00</td>
-              <td>£549.00</td>
-            </tr>
-            <tr>
-              <td>Small Corner Pads</td>
-              <td>16 pcs./set</td>
-              <td>1 set</td>
-              <td>£249.00</td>
-              <td>£379.00</td>
-            </tr>
-            <tr>
-              <td>Short Turnbuckle Cover</td>
-              <td>16 pcs./set</td>
-              <td>1 set</td>
-              <td>£189.00</td>
-              <td>£299.00</td>
-            </tr>
-            <tr>
-              <td>Long Turnbuckle Cover</td>
-              <td>4 pcs./set</td>
-              <td>1 set</td>
-              <td>£219.00</td>
-              <td>£299.00</td>
-            </tr>
-            <tr>
-              <td>Spacer</td>
-              <td>8 pcs./set</td>
-              <td>1 set</td>
-              <td>£189.00</td>
-              <td>£299.00</td>
-            </tr>
-          </tbody>
-        </table>
-        <p className="prices-note">
-          All prices include VAT. For custom sizes, bulk orders, or installation, <a href="/contact">contact us</a>.
-        </p>
-      </div>
-    </section>
+      <section className="prices-section">
+        <h2>Ring Dressing Packages & Pricing</h2>
+        <div className="prices-table-wrapper">
+          <table className="prices-table">
+            <thead>
+              <tr>
+                <th>Set</th>
+                <th>Includes</th>
+                <th>Size</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* SET */}
+              <tr>
+                <td rowSpan="5"><strong>SET</strong></td>
+                <td rowSpan="5">Canvas, Rope Cover, Corner Pad, Spacer</td>
+                <td>14ft</td>
+                <td>£1,606</td>
+              </tr>
+              <tr>
+                <td>16ft</td>
+                <td>£1,846</td>
+              </tr>
+              <tr>
+                <td>18ft</td>
+                <td>£2,456</td>
+              </tr>
+              <tr>
+                <td>20ft</td>
+                <td>£2,945</td>
+              </tr>
+              <tr>
+                <td>24ft</td>
+                <td>£3,615</td>
+              </tr>
+              {/* SET + 1ft skirt */}
+              <tr>
+                <td rowSpan="5"><strong>SET + 1ft skirt</strong></td>
+                <td rowSpan="5">Canvas, Rope Cover, Corner Pad, Spacer, 1ft Skirt</td>
+                <td>14ft</td>
+                <td>£1,905</td>
+              </tr>
+              <tr>
+                <td>16ft</td>
+                <td>£2,145</td>
+              </tr>
+              <tr>
+                <td>18ft</td>
+                <td>£2,755</td>
+              </tr>
+              <tr>
+                <td>20ft</td>
+                <td>£3,244</td>
+              </tr>
+              <tr>
+                <td>24ft</td>
+                <td>£3,914</td>
+              </tr>
+              {/* SET + 3ft skirt */}
+              <tr>
+                <td rowSpan="5"><strong>SET + 3ft skirt</strong></td>
+                <td rowSpan="5">Canvas, Rope Cover, Corner Pad, Spacer, 3ft Skirt</td>
+                <td>14ft</td>
+                <td>£1,955</td>
+              </tr>
+              <tr>
+                <td>16ft</td>
+                <td>£2,195</td>
+              </tr>
+              <tr>
+                <td>18ft</td>
+                <td>£2,805</td>
+              </tr>
+              <tr>
+                <td>20ft</td>
+                <td>£3,294</td>
+              </tr>
+              <tr>
+                <td>24ft</td>
+                <td>£3,964</td>
+              </tr>
+            </tbody>
+          </table>
+          <p className="prices-note">
+            All prices include VAT. Delivery and installation available on request. For bespoke packages or larger orders, please <a href="/contact">contact us</a> for a quote.
+          </p>
+        </div>
+      </section>
+  <section className="prices-section">
+    <h2>Individual Product Pricing</h2>
+    <div className="prices-table-wrapper">
+      <table className="prices-table">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>OUR PRICE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>canvas 14 ft. vinyl</td><td>1 pcs.</td><td>£899</td></tr>
+          <tr><td>canvas 14ft</td><td>1 pcs.</td><td>£549</td></tr>
+          <tr><td>canvas 16 ft.</td><td>1 pcs.</td><td>£589</td></tr>
+          <tr><td>canvas 18 ft.</td><td>1 pcs.</td><td>£899</td></tr>
+          <tr><td>canvas 20 ft.</td><td>1 pcs.</td><td>£1,049</td></tr>
+          <tr><td>canvas 24 ft.</td><td>1 pcs.</td><td>£1,449</td></tr>
+          <tr><td>Rope cover 14 ft. ring (11/12 ft.)</td><td>1 pcs.</td><td>£549</td></tr>
+          <tr><td>Rope cover 16 ft. ring (13 ft.)</td><td>1 set</td><td>£599</td></tr>
+          <tr><td>Rope cover 16 ft. ring (14 ft.)</td><td>1 set</td><td>£749</td></tr>
+          <tr><td>Rope cover 18 ft. ring (15 ft.)</td><td>1 set</td><td>£889</td></tr>
+          <tr><td>Rope cover 18 ft. ring (16 ft.)</td><td>1 set</td><td>£1,049</td></tr>
+          <tr><td>Rope cover 20 ft. ring (17 ft.)</td><td>1 set</td><td>£1,179</td></tr>
+          <tr><td>Rope cover 24 ft. ring (21 ft.)</td><td>1 set</td><td>£1,449</td></tr>
+          <tr><td>skirts ANY FT RING - 1 ft.</td><td>1 set</td><td>£299</td></tr>
+          <tr><td>skirts ANY FT RING - 3 ft.</td><td>1 set</td><td>£349</td></tr>
+          <tr><td>corner pads 4 pcs./set</td><td>1 set</td><td>£299</td></tr>
+          <tr><td>small corner pads 16 pcs./set</td><td>1 set</td><td>£249</td></tr>
+          <tr><td>short turnbuckle cover 16 pcs./set</td><td>1 set</td><td>£209</td></tr>
+          <tr><td>Long turnbuckle cover 4 pcs./set</td><td>1 set</td><td>£209</td></tr>
+          <tr><td>spacer 8 pcs./set</td><td>1 set</td><td>£209</td></tr>
+        </tbody>
+      </table>
+      <p className="prices-note">
+        Min £1000 for free delivery.<br />
+        All prices include VAT. For custom sizes, bulk orders, or installation, <a href="/contact">contact us</a>.
+      </p>
+    </div>
+  </section>
   </div>
   );
 }
@@ -736,6 +635,9 @@ export function HomeHighlight() {
       <div className="about-highlight-text">
         <p style={{ fontSize: '1.5rem', fontWeight: 400, textAlign: 'center', margin: 0 }}>
           Custom Boxing Rings UK delivers premium, fully custom ring dressings and accessories for gyms and promoters. From bespoke canvases to branded corner pads and rope covers, we help you create a professional look for any event—crafted for durability, style, and impact.
+        </p>
+        <p style={{ fontSize: '1.15rem', textAlign: 'center', marginTop: '1.5rem' }}>
+          For full ring orders, MMA cages, or any combat sport related installation or dressing, check out our <Link to="/custom-boxing-rings">Full Rings</Link>, <Link to="/mma-cages">MMA Cages</Link>, <Link to="/products">Products</Link>, <Link to="/what-we-do">What We Do</Link>, <Link to="/about">About Us</Link>, or <Link to="/contact">Contact Us</Link> to find out more.
         </p>
       </div>
     </div>
