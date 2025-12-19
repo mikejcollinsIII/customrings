@@ -8,13 +8,11 @@ import {
   Body, 
   StagesIndicator, 
   HeaderMedia, 
-  AboutHighlight, 
   HomeHighlight, 
   Products, 
   About, 
   Contact,
   Gallery,
-  WhatWeDo,
   WhatWeDoWithPrices
 } from './components.jsx';
 
