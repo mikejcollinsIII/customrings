@@ -1,0 +1,66 @@
+backend:
+  name: github
+  repo: mikejcollinsIII/customrings
+  branch: main
+  client_id: Ov23li12RlZcomyn6qy2
+  base_url: https://api.netlify.com
+  
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "all-work"
+    label: "All Our Work"
+    folder: "src/assets/gallery/all-work"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+  - name: "corner-pads"
+    label: "Corner Pads"
+    folder: "src/assets/gallery/corner-pads"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+  - name: "custom-bags"
+    label: "Custom Bags"
+    folder: "src/assets/gallery/custom-bags"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+  - name: "ring-covers"
+    label: "Ring Covers"
+    folder: "src/assets/gallery/ring-covers"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+  - name: "rope-covers"
+    label: "Rope Covers"
+    folder: "src/assets/gallery/rope-covers"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+  - name: "rope-spacers"
+    label: "Rope Spacers"
+    folder: "src/assets/gallery/rope-spacers"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }

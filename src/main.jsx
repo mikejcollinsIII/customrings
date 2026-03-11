@@ -12,7 +12,6 @@ import {
   Products, 
   About, 
   Contact,
-  Gallery,
   WhatWeDoWithPrices
 } from './components.jsx';
 
